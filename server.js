@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log(`${new Date().toLocaleString(undefined, { timeZone : 'IST'})}`)
+    console.log(`${new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'})}`)
 })
 
 module.exports = app;
