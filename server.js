@@ -49,4 +49,12 @@ setInterval(function () {
     functionToCallAfter30Sec()
 }, 30000)
 
+app.get('/', (req, res) => {
+    res.send({"Hello": "Hello"})
+})
+
+app.listen(2000, () => {
+    console.log(`Example app listening at http://localhost:2000`)
+})
+
 module.exports = app;
