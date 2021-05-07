@@ -9,7 +9,7 @@ app.get('/getCity', async (req, res) => {
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
-        headers: { 'Accept-Language': 'en_US', 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36' }
+        headers: { 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36' }
     })
     console.log(await log.text())
     var responseFetch = await log.json()
@@ -34,7 +34,7 @@ async function functionToCallAfter30Sec() {
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
-        headers: { 'Accept-Language': 'en_US', 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36' }
+        headers: { 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36' }
     })
     var responseFetch = await log.json()
     responseFetch.centers.forEach(perCenter => {
