@@ -54,18 +54,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log(`${convertUTCDateToLocalDate(new Date())}`)
+    console.log(`${new Date().toLocaleString(undefined, { timeZone : 'IST'})}`)
 })
-
-function convertUTCDateToLocalDate(date) {
-    var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
-
-    var offset = date.getTimezoneOffset() / 60;
-    var hours = date.getHours();
-
-    newDate.setHours(hours - offset);
-
-    return newDate;   
-}
 
 module.exports = app;
