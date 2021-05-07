@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log(`Example app listening at http://localhost:2000`)
+    console.log(`${new Date().toLocaleString()}`)
 })
 
 module.exports = app;
