@@ -5,12 +5,13 @@ const notifyMe = require('./sendSMS')
 
 app.get('/getCity', async (req, res) => {
     var currentDate = new Date(new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'}));
-    var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
+    var nextDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
         headers: { 'Accept-Language': 'en_US', 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36' }
     })
+    console.log(await log.text())
     var responseFetch = await log.json()
     console.log(responseFetch)
     responseFetch.centers.forEach(perCenter => {
@@ -29,7 +30,7 @@ app.get('/getCity', async (req, res) => {
 
 async function functionToCallAfter30Sec() {
     var currentDate = new Date(new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'}));
-    var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
+    var nextDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
