@@ -4,7 +4,8 @@ const fetch = require('node-fetch');
 const notifyMe = require('./sendSMS')
 
 app.get('/getCity', async (req, res) => {
-    var nextDate = `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
+    var currentDate = new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'});
+    var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
@@ -27,7 +28,8 @@ app.get('/getCity', async (req, res) => {
 // })
 
 async function functionToCallAfter30Sec() {
-    var nextDate = `${new Date().getDate() + 1}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
+    var currentDate = new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'});
+    var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
