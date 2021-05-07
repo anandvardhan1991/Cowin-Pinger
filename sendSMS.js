@@ -3,14 +3,14 @@ const authToken = process.env.authToken;
 const serv = process.env.serv;
 const client = require('twilio')(accountSid, authToken);
 
-function notifyMe() {
+function notifyMe(pinCodeVaccine) {
 
 const notificationOpts = {
     toBinding: JSON.stringify({
       binding_type: 'sms',
       address: process.env.personalNumber,
     }),
-    body: 'Knock-Knock! This is your first Notify SMS',
+    body: `Vaccine available at ${pinCodeVaccine}`,
   };
   
   client.notify
