@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const notifyMe = require('./sendSMS')
 
 app.get('/getCity', async (req, res) => {
-    var currentDate = new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'});
+    var currentDate = new Date(new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'}));
     var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
@@ -28,7 +28,7 @@ app.get('/getCity', async (req, res) => {
 // })
 
 async function functionToCallAfter30Sec() {
-    var currentDate = new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'});
+    var currentDate = new Date(new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'}));
     var nextDate = `${currentDate.getDate() + 1}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log(`${new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'})}`)
+    console.log(`${typeof new Date(new Date().toLocaleString(undefined, { timeZone : 'Asia/Kolkata'}))}`)
 })
 
 module.exports = app;
