@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
     return res.send({"Hello": "Hello"})
 })
 
-app.listen(process.env.PORT | 2000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Example app listening at http://localhost:2000`)
 })
 
