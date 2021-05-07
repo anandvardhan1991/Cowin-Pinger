@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const notifyMe = require('./sendSMS')
 
 app.get('/getCity', async (req, res) => {
-    var nextDate = `${new Date().getDate() + 1}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
+    var nextDate = `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
     var log = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date=${nextDate}`,
     {
         method: 'GET',
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
     return res.send({"Hello": "Hello"})
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT | 2000, () => {
     console.log(`Example app listening at http://localhost:2000`)
 })
 
