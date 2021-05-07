@@ -50,7 +50,7 @@ setInterval(function () {
 }, 30000)
 
 app.get('/', (req, res) => {
-    res.send({"Hello": "Hello"})
+    return res.send({"Hello": "Hello"})
 })
 
 app.listen(2000, () => {
